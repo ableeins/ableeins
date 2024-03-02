@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @ableeins
-- 👀 I’m interested to Alin & Regina
+- 👀 I’m interested to Something
 - 🌱 I’m currently learning Code Web
 - 💞️ I’m looking to collaborate on Global Developers
 - 📫 How to reach me Follow My Instagram @ableeins
