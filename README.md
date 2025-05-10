@@ -1,75 +1,58 @@
-<h1 align="center">Hi there 👋, I'm Ilham</h1>
-<h3 align="center">A Multi Engineer from Jakarta | IT Student @UBSI | Passionate about Tech & Solutions</h3>
+# Multi Engineering 🛠️
 
----
+Welcome to the **Multi Engineering** project! This repository is dedicated to engineering solutions, with an emphasis on versatility across different fields of engineering. Whether you're working with mechanical, electrical, software, or civil engineering, this repo provides tools and resources that you can use to make your work more efficient and innovative.
 
-### 🚀 About Me
+![Banner](https://i.imgur.com/8Qymdf4.jpg)
 
-- 🔧 Multi-skilled engineer, experienced in maintenance, networking, and infrastructure
-- 🌐 Now diving deep into **Web Development** & **System Integration**
-- 🎓 Currently studying Information Technology @ Universitas Bina Sarana Informatika
-- 💡 Always building, learning, and sharing
+## Badges 🎖️
 
----
+[![Build Status](https://img.shields.io/travis/username/repository.svg)](https://travis-ci.org/username/repository)  
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)  
+[![Contributors](https://img.shields.io/github/contributors/username/repository.svg)](https://github.com/username/repository/graphs/contributors)  
+[![Issues](https://img.shields.io/github/issues/username/repository.svg)](https://github.com/username/repository/issues)  
+[![Stars](https://img.shields.io/github/stars/username/repository.svg?style=social&label=Stars)](https://github.com/username/repository)  
 
-### 🛠️ Tech Stack & Tools
+## Trophy 🏆
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=js,ts,html,css,react,nextjs,nodejs,express,php,laravel,mysql,mongodb,python,bash,git,linux,docker,vscode" />
-</p>
+[![Trophy](https://github-profile-trophy.vercel.app/?username=ableeins)](https://github.com/ryo-ma/github-profile-trophy)
 
----
+## Pac-Man Action 🎮
 
-### 📊 GitHub Stats
+![Pac-Man](https://media.giphy.com/media/3o6oz5uw2pINXAO0Lu/giphy.gif)  
+*Catch the Pac-Man and the power pellets!*
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ableeins&show_icons=true&theme=radical" width="45%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=ableeins&theme=radical" width="45%" />
-</p>
+## Social Media 🌐
 
----
+- Twitter: [@ableeins](https://twitter.com/d1zstr1ck33)
+- LinkedIn: [ableeins](https://linkedin.com/in/ableeins)
+- Instagram: [@ableeins](https://instagram.com/ableeins)
 
-### 🔥 Most Used Languages
+## Statistics 📊
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ableeins&layout=compact&theme=radical" width="50%" />
-</p>
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ableeins&show_icons=true&hide_title=true&count_private=true&hide=prs)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ableeins&layout=compact)
 
----
+## Actions 🚀
 
-### 🎯 Currently Learning
+### Clone this repository
 
-- 🧱 Fullstack JavaScript (MERN Stack)
-- ☁️ Basic DevOps & Docker
-- 🧠 Automation with Python & Bash
+To clone this repository to your local machine, run the following command:
 
----
+```bash
+git clone https://github.com/ableeins/Multi-Engineering.git
+Contributing
+We welcome contributions to improve the project. Please refer to the CONTRIBUTING.md for more details on how you can contribute.
 
-### 🎨 GitHub Profile Trophy
+License 📜
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=ableeins&theme=radical&margin-w=10&no-bg=true&no-frame=true" />
-</p>
+Roadmap 🛣️
+Q1 2025: Launch of new engineering tools for software development.
 
----
+Q2 2025: Collaboration with external teams for hardware integration solutions.
 
-### 📫 Let's Connect!
+Q3 2025: Expand into educational resources for engineering students.
 
-<p align="center">
-  <a href="mailto:ilham.hsyn@ableeins.com"><img src="https://img.shields.io/badge/Gmail-red?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-  <a href="https://www.linkedin.com/in/ableeins/"><img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-   <a href="https://www.instagram.com/ableeins/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /></a>
-  <a href="https://wa.me/6281210181427"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>
-</p>
+✨ Made with love and engineering by Ilham
 
----
-
-### 🧩 Fun Facts
-
-- 🧃 Code + music = productivity boost
-- 🛠️ Favorite command: `sudo apt update && sudo apt upgrade`
-- 🧠 I enjoy solving real-world problems with digital tools
-
----
-
-> _“Solusi ada di mana-mana, asal tahu cara mikirnya.”_ — Ilham ✨
+"Engineering is not just about solving problems, but about creating solutions that change the world." 🌍
