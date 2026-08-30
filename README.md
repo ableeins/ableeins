@@ -1,40 +1,22 @@
 <div align="center">
 
-<h1>🛠️ Multi Engineering</h1>
+<!-- Banner Animasi Pixel Art -->
+<img src="https://media.giphy.com/media/10vVv8QO9wAHT6/giphy.gif" alt="Pixel Art City" width="100%" style="border-radius: 15px;">
+
+<br><br>
+
+<h1>👾 Multi Engineering 🚀</h1>
 
 <p>
   Welcome to the <strong>Multi Engineering</strong> project! This repository is dedicated to engineering solutions, with an emphasis on versatility across different fields of engineering. Whether you're working with mechanical, electrical, software, or civil engineering, this repo provides tools and resources that you can use to make your work more efficient and innovative.
 </p>
 
-<img src="https://i.imgur.com/8Qymdf4.jpg" alt="Banner" width="100%" style="border-radius: 15px;">
+<!-- Animasi Nyan Cat (Pixel) sebagai pembatas -->
+<img src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" alt="Nyan Cat" width="300">
 
 <br><br>
 
-<h2>🎖️ Badges</h2>
-<p>
-  <a href="https://travis-ci.org/ableeins/Multi-Engineering"><img src="https://img.shields.io/travis/ableeins/Multi-Engineering.svg" alt="Build Status"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-  <a href="https://github.com/ableeins/Multi-Engineering/graphs/contributors"><img src="https://img.shields.io/github/contributors/ableeins/Multi-Engineering.svg" alt="Contributors"></a>
-  <a href="https://github.com/ableeins/Multi-Engineering/issues"><img src="https://img.shields.io/github/issues/ableeins/Multi-Engineering.svg" alt="Issues"></a>
-  <a href="https://github.com/ableeins/Multi-Engineering"><img src="https://img.shields.io/github/stars/ableeins/Multi-Engineering.svg?style=social&label=Stars" alt="Stars"></a>
-</p>
-
-<br>
-
-<h2>🏆 Trophy</h2>
-<a href="https://github.com/ryo-ma/github-profile-trophy">
-  <img src="https://github-profile-trophy.vercel.app/?username=ableeins" alt="Trophy">
-</a>
-
-<br><br>
-
-<h2>🎮 Pac-Man Action</h2>
-<img src="https://media.giphy.com/media/3o6oz5uw2pINXAO0Lu/giphy.gif" alt="Pac-Man" width="400">
-<p><em>Catch the Pac-Man and the power pellets!</em></p>
-
-<br>
-
-<h2>🌐 Connect With Me</h2>
+<h2>🕹️ Social & Connect</h2>
 <p>
   <a href="https://instagram.com/ableeins"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram"></a>
   <a href="https://wa.me/6281210181427"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"></a>
@@ -44,10 +26,27 @@
 
 <br>
 
-<h2>📊 GitHub Statistics</h2>
+<!-- Animasi Pac-Man -->
+<h2>🎮 Pac-Man Action</h2>
+<img src="https://media.giphy.com/media/3o6oz5uw2pINXAO0Lu/giphy.gif" alt="Pac-Man" width="100%">
+<p><em>Catch the bugs, eat the dots, write the code!</em></p>
+
+<br>
+
+<!-- Trophy (Otomatis Update) -->
+<h2>🏆 GitHub Trophies</h2>
+<p><em>Auto-fetched based on your total GitHub activity</em></p>
+<a href="https://github.com/ryo-ma/github-profile-trophy">
+  <img src="https://github-profile-trophy.vercel.app/?username=ableeins&theme=tokyonight&margin-w=15&margin-h=15&no-frame=true&column=6" alt="Trophy">
+</a>
+
+<br><br>
+
+<!-- GitHub Stats (Otomatis narik dari semua repo lama & baru) -->
+<h2>📊 Live Lifetime Statistics</h2>
 <p>
-  <img src="https://github-readme-stats.vercel.app/api?username=ableeins&show_icons=true&hide_title=true&count_private=true&hide=prs&theme=radical" alt="GitHub Stats" height="150">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ableeins&layout=compact&theme=radical" alt="Top Langs" height="150">
+  <img src="https://github-readme-stats.vercel.app/api?username=ableeins&show_icons=true&hide_title=true&count_private=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" height="150">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ableeins&layout=compact&theme=tokyonight" alt="Top Langs" height="150">
 </p>
 
 <br>
@@ -78,6 +77,9 @@
 <br><br>
 
 <div align="center">
+  <!-- Pembatas Bawah Animasi Pixel Mario/Retro -->
+  <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Retro Divider" width="150">
+  
   <h3>✨ Made with love and engineering by Ilham ✨</h3>
   <br>
   <blockquote>
