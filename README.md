@@ -69,9 +69,9 @@
 
 <h2>🛣️ Roadmap</h2>
 <ul>
-  <li><strong>Q1 2025:</strong> Launch of new engineering tools for software development.</li>
-  <li><strong>Q2 2025:</strong> Collaboration with external teams for hardware integration solutions.</li>
-  <li><strong>Q3 2025:</strong> Expand into educational resources for engineering students.</li>
+  <li><strong>Q1 2026:</strong> Launch of new engineering tools for software development.</li>
+  <li><strong>Q2 2026:</strong> Collaboration with external teams for hardware integration solutions.</li>
+  <li><strong>Q3 2026:</strong> Expand into educational resources for engineering students.</li>
 </ul>
 
 <br><br>
