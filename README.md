@@ -1,20 +1,19 @@
 <div align="center">
 
-<!-- Banner Animasi Pixel Art -->
-<img src="https://media.giphy.com/media/10vVv8QO9wAHT6/giphy.gif" alt="Pixel Art City" width="100%" style="border-radius: 15px;">
+<!-- Header Menggunakan Capsule Render (Stabil, Estetik, & Selamanya Aman) -->
+<a href="https://github.com/ableeins/Multi-Engineering">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1a1b26,7aa2f7,bb9af7&height=200&section=header&text=Multi%20Engineering&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Engineering%20Solutions%20&%20Versatile%20Tools&descSize=16&descColor=bb9af7" alt="Multi Engineering Banner" width="100%" />
+</a>
 
 <br><br>
 
-<h1>👾 Multi Engineering 🚀</h1>
+<h1>👾 Welcome to Multi Engineering 🚀</h1>
 
 <p>
-  Welcome to the <strong>Multi Engineering</strong> project! This repository is dedicated to engineering solutions, with an emphasis on versatility across different fields of engineering. Whether you're working with mechanical, electrical, software, or civil engineering, this repo provides tools and resources that you can use to make your work more efficient and innovative.
+  This repository is dedicated to engineering solutions, with an emphasis on versatility across different fields of engineering. Whether you're working with mechanical, electrical, software, or civil engineering, this repo provides tools and resources that you can use to make your work more efficient and innovative.
 </p>
 
-<!-- Animasi Nyan Cat (Pixel) sebagai pembatas -->
-<img src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" alt="Nyan Cat" width="300">
-
-<br><br>
+<br>
 
 <h2>🕹️ Social & Connect</h2>
 <p>
@@ -23,13 +22,6 @@
   <a href="https://twitter.com/d1zstr1ck33"><img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white" alt="Twitter"></a>
   <a href="https://linkedin.com/in/ableeins"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 </p>
-
-<br>
-
-<!-- Animasi Pac-Man -->
-<h2>🎮 Pac-Man Action</h2>
-<img src="https://media.giphy.com/media/3o6oz5uw2pINXAO0Lu/giphy.gif" alt="Pac-Man" width="100%">
-<p><em>Catch the bugs, eat the dots, write the code!</em></p>
 
 <br>
 
@@ -42,7 +34,7 @@
 
 <br><br>
 
-<!-- GitHub Stats (Otomatis narik dari semua repo lama & baru) -->
+<!-- GitHub Stats -->
 <h2>📊 Live Lifetime Statistics</h2>
 <p>
   <img src="https://github-readme-stats.vercel.app/api?username=ableeins&show_icons=true&hide_title=true&count_private=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" height="150">
@@ -77,9 +69,8 @@
 <br><br>
 
 <div align="center">
-  <!-- Pembatas Bawah Animasi Pixel Mario/Retro -->
-  <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Retro Divider" width="150">
-  
+  <hr style="width: 50%; border: 1px solid #7aa2f7;">
+  <br>
   <h3>✨ Made with love and engineering by Ilham ✨</h3>
   <br>
   <blockquote>
