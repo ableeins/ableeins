@@ -329,90 +329,69 @@
       @keyframes blink {
         50% { opacity: 0; }
       }
-
-      /* Tombol Ketuk Siapa Rajanya */
-      .tap-btn-king {
-        font-size: 1.1rem;
-        font-weight: 800;
-        letter-spacing: 2px;
-        color: #ffd700;
-        text-align: center;
-        padding: 18px 32px;
-        border: 2px solid #ffd700;
-        border-radius: 50px;
-        background: rgba(255, 215, 0, 0.08);
-        box-shadow: 0 0 25px rgba(255, 215, 0, 0.35);
-        animation: pulseKing 1.5s infinite;
-        cursor: pointer;
-        transition: transform 0.2s;
-      }
-      .tap-btn-king:hover {
-        transform: scale(1.05);
-        background: rgba(255, 215, 0, 0.18);
-      }
-      @keyframes pulseKing {
-        0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
-        50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(255, 215, 0, 0.7); }
-        100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
-      }
-
-      /* Hidden YT Player Container */
-      #yt-player-container {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 1px;
-        height: 1px;
-        opacity: 0.01;
-        pointer-events: none;
-        z-index: -99;
-      }
     </style>
   </head>
 
-  <body class="antialiased selection:bg-purple-500 selection:text-white pb-28 sm:pb-16">
+  <body class="antialiased selection:bg-purple-500 selection:text-white pb-36 sm:pb-24">
     <!-- ================= LATAR BELAKANG LUAR ANGKASA (3D STARFIELD & NEBULA) ================= -->
     <canvas id="space-canvas"></canvas>
     <div class="nebula-1"></div>
     <div class="nebula-2"></div>
 
-    <!-- ================= PRELOADER DENGAN ACTION "- KETUK UNTUK MELIHAT SIAPA RAJANYA -" ================= -->
+    <!-- ================= PRELOADER 1 MENIT (60 DETIK) DENGAN LOADING.PNG ================= -->
     <div
       id="preloader"
-      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030014]/98 backdrop-blur-2xl px-6 text-center"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030014]/95 backdrop-blur-xl px-6"
     >
       <!-- Animasi Reaktor Kosmik + Foto loading.png -->
-      <div class="relative flex items-center justify-center w-52 h-52 sm:w-60 sm:h-60 mb-6">
+      <div class="relative flex items-center justify-center w-56 h-56 sm:w-64 sm:h-64 mb-6">
         <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-600/30 via-cyan-400/20 to-pink-500/30 blur-2xl animate-pulse"></div>
         <div class="absolute inset-0 rounded-full border-2 border-dashed border-cyan-400/60 animate-[spin_12s_linear_infinite]"></div>
         <div class="absolute inset-3 rounded-full border-t-2 border-b-2 border-purple-500 animate-[spin_4s_linear_infinite_reverse]"></div>
-        
+        <div class="absolute inset-7 rounded-full border-r-2 border-l-2 border-cyan-300/80 animate-[spin_2.5s_linear_infinite]"></div>
+
         <img
           src="loading.png"
           alt="Ilham Husseini Loading"
-          class="relative z-10 w-32 h-32 sm:w-36 sm:h-36 object-contain loading-avatar-anim select-none"
+          class="relative z-10 w-36 h-36 sm:w-40 sm:h-40 object-contain loading-avatar-anim select-none"
         />
+
+        <div class="absolute -bottom-2 z-20 px-4 py-1 rounded-full bg-slate-950/90 border border-cyan-400/60 shadow-[0_0_20px_#22d3ee] flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span id="progress-num" class="font-display text-xs sm:text-sm font-black text-cyan-300">0%</span>
+          <span id="timer-countdown" class="font-mono text-[11px] text-purple-300">(60s)</span>
+        </div>
       </div>
 
-      <div class="w-full max-w-md space-y-4">
-        <p class="font-display text-xs sm:text-sm tracking-[0.25em] text-cyan-300 uppercase">
-          444-NETWORK // AUDIO HYPERSPACE SYNC
+      <div class="w-full max-w-md text-center space-y-3 mt-2">
+        <p class="font-display text-sm sm:text-base tracking-[0.25em] text-cyan-300 uppercase">
+          444-NETWORK // HYPERSPACE CALIBRATION
+        </p>
+        <p id="boot-text" class="font-mono text-xs text-purple-300 min-h-[20px]">
+          Menginisialisasi Koordinat Galaksi (Durasi Kalibrasi 60 Detik)...
         </p>
 
-        <!-- Tombol Interaktif Sesuai Permintaan -->
-        <div onclick="mulaiMusikDanMasuk()" class="tap-btn-king inline-block my-2">
-          - KETUK UNTUK MELIHAT SIAPA RAJANYA -
+        <div class="h-2 w-full max-w-xs mx-auto overflow-hidden rounded-full bg-slate-900 border border-purple-500/40 p-0.5">
+          <div
+            id="progress-bar"
+            class="h-full rounded-full bg-gradient-to-r from-purple-500 via-cyan-400 to-white shadow-[0_0_15px_#22d3ee] transition-all duration-150"
+            style="width: 0%"
+          ></div>
         </div>
 
-        <p class="font-mono text-[11px] text-slate-400">
-          Ketuk tombol di atas untuk mengaktifkan musik latar (*Stars Collide Remix*) &amp; masuk ke portofolio.
+        <p class="font-mono text-[11px] text-slate-400 italic pt-1">
+          "Sabar ya, kalibrasi satelit 444-Network butuh 1 menit penuh..."
         </p>
-      </div>
-    </div>
 
-    <!-- ================= PEMUTAR YOUTUBE MUSIC TERSEMBUNYI (ID: pFnVn1o0mS8) ================= -->
-    <div id="yt-player-container">
-      <div id="player"></div>
+        <div class="pt-3">
+          <button
+            onclick="skipPreloader()"
+            class="font-mono text-[10px] text-slate-400 hover:text-cyan-300 border border-slate-700/60 hover:border-cyan-400/60 px-3.5 py-1.5 rounded-full bg-slate-900/50 transition"
+          >
+            ⚡ Lewati Kalibrasi 60 Detik (Warp Langsung)
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- ================= NAVBAR ATAS ================= -->
@@ -459,7 +438,7 @@
     </header>
 
     <!-- ================= FLOATING BOTTOM DOCK (KHUSUS HP) ================= -->
-    <nav class="sm:hidden fixed bottom-4 left-4 right-4 z-40 rounded-full border border-purple-500/40 bg-[#07031d]/90 backdrop-blur-2xl p-1.5 shadow-[0_0_30px_rgba(124,58,237,0.35)] flex justify-around font-mono text-[11px]">
+    <nav class="sm:hidden fixed bottom-16 left-4 right-4 z-40 rounded-full border border-purple-500/40 bg-[#07031d]/90 backdrop-blur-2xl p-1.5 shadow-[0_0_30px_rgba(124,58,237,0.35)] flex justify-around font-mono text-[11px]">
       <button onclick="filterSection('all')" id="m-btn-all" class="nav-btn active flex-1 py-2.5 rounded-full border border-transparent text-center transition">
         🌌 Orbit
       </button>
@@ -497,7 +476,6 @@
               </span>
             </h1>
 
-            <!-- Animasi Ketik Otomatis (Typewriter) -->
             <div class="font-mono text-xs sm:text-sm text-cyan-300 bg-slate-950/70 border border-cyan-500/30 rounded-xl px-4 py-3 inline-block">
               <span class="text-purple-400">root@cosmos:~$</span>
               <span id="typewriter-text">Praktisi Cyber Security</span><span class="cursor-blink text-cyan-400 font-bold">|</span>
@@ -534,7 +512,6 @@
           <div class="lg:col-span-5 flex items-center justify-center py-6">
             <div class="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center zero-gravity">
               <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-600/45 via-cyan-400/35 to-pink-500/35 blur-2xl animate-pulse"></div>
-
               <div class="absolute w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-cyan-500/30 via-indigo-900/70 to-[#05011a] border border-cyan-400/40 shadow-[inset_-20px_-20px_40px_rgba(0,0,0,0.9),0_0_50px_rgba(6,182,212,0.35)]"></div>
 
               <img
@@ -594,7 +571,7 @@
               <div class="relative w-52 h-60 sm:w-60 sm:h-64 flex items-end justify-center zero-gravity-delayed">
                 <div class="absolute inset-4 rounded-full bg-gradient-to-t from-pink-500/30 via-purple-600/25 to-transparent blur-xl"></div>
                 <img
-                  src="tambahanfoto.png"
+                  src="fototambahan.png"
                   alt="Ilham Husseini Cosmic Reflection"
                   class="relative z-10 w-full h-full object-contain neon-cutout-galau select-none"
                 />
@@ -624,7 +601,7 @@
         </div>
       </section>
 
-      <!-- ================= PAGE PROJECT (4 STELLAR MISSIONS) ================= -->
+      <!-- ================= PAGE PROJECT (4 STELLAR MISSIONS - BISA DIKLIK) ================= -->
       <section id="sec-projects" class="page-section space-y-8">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-purple-500/30 pb-4">
           <div>
@@ -638,7 +615,7 @@
 
         <div class="grid sm:grid-cols-2 gap-6">
           
-          <!-- PROJECT 1 -->
+          <!-- PROJECT 1: RENTAL MOBIL OSBORN -->
           <a
             href="https://www.rentalmobilosborn.com"
             target="_blank"
@@ -674,7 +651,7 @@
             </div>
           </a>
 
-          <!-- PROJECT 2 -->
+          <!-- PROJECT 2: KOPIKITA -->
           <a
             href="https://kopikita.web.id/"
             target="_blank"
@@ -709,7 +686,7 @@
             </div>
           </a>
 
-          <!-- PROJECT 3 -->
+          <!-- PROJECT 3: 444-NETWORK -->
           <a
             href="https://www.444-network.id"
             target="_blank"
@@ -745,7 +722,7 @@
             </div>
           </a>
 
-          <!-- PROJECT 4 -->
+          <!-- PROJECT 4: BAJUBARU.ID -->
           <a
             href="https://www.bajubaru.id/"
             target="_blank"
@@ -784,7 +761,7 @@
         </div>
       </section>
 
-      <!-- ================= RIWAYAT PEKERJAAN ================= -->
+      <!-- ================= RIWAYAT PEKERJAAN (STAR LOG TIMELINE) ================= -->
       <section id="sec-career" class="page-section space-y-8">
         <div class="border-b border-purple-500/30 pb-4">
           <p class="font-mono text-xs text-purple-400 uppercase tracking-widest">🪐 // MISSION LOGS &amp; CAREER ORBIT</p>
@@ -888,7 +865,7 @@
         </div>
       </section>
 
-      <!-- ================= PAGE CONTACT ================= -->
+      <!-- ================= PAGE CONTACT (DEEP SPACE TRANSMISSION + LOGO RESMI) ================= -->
       <section id="sec-contact" class="page-section space-y-6">
         <div class="cosmic-card rounded-[2rem] p-6 sm:p-10">
           <div class="max-w-2xl">
@@ -903,7 +880,6 @@
 
           <div class="grid sm:grid-cols-2 gap-5 mt-8">
             
-            <!-- WHATSAPP -->
             <a
               href="https://wa.me/6285147284454"
               target="_blank"
@@ -925,7 +901,6 @@
               <span class="font-mono text-emerald-400 group-hover:translate-x-1 transition">↗</span>
             </a>
 
-            <!-- INSTAGRAM -->
             <a
               href="https://www.instagram.com/ableeins"
               target="_blank"
@@ -947,7 +922,6 @@
               <span class="font-mono text-pink-400 group-hover:translate-x-1 transition">↗</span>
             </a>
 
-            <!-- LINKEDIN -->
             <a
               href="https://www.linkedin.com/in/ableeins"
               target="_blank"
@@ -969,7 +943,6 @@
               <span class="font-mono text-sky-400 group-hover:translate-x-1 transition">↗</span>
             </a>
 
-            <!-- GITHUB -->
             <a
               href="https://github.com/ableeins"
               target="_blank"
@@ -997,15 +970,47 @@
 
     </main>
 
+    <!-- ================= FLOATING COSMIC MUSIC PLAYER (YOUTUBE MUSIC: STARBOY) ================= -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#05011a]/95 backdrop-blur-2xl border-t border-purple-500/40 px-4 py-2.5 shadow-[0_-10px_30px_rgba(6,182,212,0.25)] flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 overflow-hidden">
+        <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-400/50 shadow-[0_0_15px_#22d3ee] flex-shrink-0 animate-spin" style="animation-duration: 8s;">
+          <img src="https://i.ytimg.com/vi/3_g2un5M350/hqdefault.jpg" alt="Starboy" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden">
+          <p class="font-display text-xs font-bold text-white truncate">Starboy — The Weeknd</p>
+          <p class="font-mono text-[10px] text-cyan-300 truncate">🎵 YouTube Music Orbit (3_g2un5M350)</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <audio id="cosmic-audio" src="https://www.youtube.com/watch?v=3_g2un5M350" preload="none"></audio>
+        <button
+          onclick="toggleCosmicMusic()"
+          id="music-play-btn"
+          class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-black font-display font-bold text-[10px] shadow-[0_0_15px_rgba(34,211,238,0.5)] hover:scale-105 transition flex items-center gap-1.5"
+        >
+          <span id="music-icon">▶</span> <span id="music-label">PUTAR LAGU</span>
+        </button>
+        <a
+          href="https://music.youtube.com/watch?v=3_g2un5M350"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-[10px] px-3 py-1.5 rounded-full bg-slate-900 border border-purple-500/40 text-purple-300 hover:text-white hover:border-cyan-400 transition hidden sm:inline-block"
+        >
+          Buka YT Music ↗
+        </a>
+      </div>
+    </div>
+
     <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-purple-500/20 py-8 text-center font-mono text-xs text-slate-400 px-5">
+    <footer class="border-t border-purple-500/20 py-8 text-center font-mono text-xs text-slate-400 px-5 mb-12">
       <p>
         🌌 © 2026 <strong>444-Network</strong> • Cosmic Portfolio of
         <strong>Ilham Husseini (Adrian Archimedes / Muhammad Adrian Achilles / Ableeins)</strong>
       </p>
     </footer>
 
-    <!-- ================= JAVASCRIPT: 3D STARFIELD, YT PLAYER & TYPEWRITER ================= -->
+    <!-- ================= JAVASCRIPT: 3D STARFIELD, 60s PRELOADER & MUSIC PLAYER ================= -->
     <script>
       // 1. 3D STARFIELD & SHOOTING STARS ENGINE
       const canvas = document.getElementById('space-canvas');
@@ -1088,58 +1093,73 @@
       }
       animateSpace();
 
-      // 2. YOUTUBE MUSIC EMBED API INTEGRATION
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      var player;
-      var isPlayerReady = false;
-      var pendingPlay = false;
-
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '1',
-          width: '1',
-          videoId: 'pFnVn1o0mS8', // ID Video YouTube Music pilihanmu
-          playerVars: {
-            'autoplay': 0,
-            'controls': 0,
-            'loop': 1,
-            'playlist': 'pFnVn1o0mS8',
-            'playsinline': 1
-          },
-          events: {
-            'onReady': function(event) {
-              isPlayerReady = true;
-              if (pendingPlay) {
-                event.target.unMute();
-                event.target.setVolume(100);
-                event.target.playVideo();
-              }
-            }
-          }
-        });
-      }
-
-      function mulaiMusikDanMasuk() {
-        warpSpeed = 16; // Efek bintang ngebut (warp) saat diketuk
-        setTimeout(() => { warpSpeed = 1.5; }, 800);
-
-        // Putar musik YouTube
-        if (isPlayerReady && player && typeof player.playVideo === 'function') {
-          player.unMute();
-          player.setVolume(100);
-          player.playVideo();
-        } else {
-          pendingPlay = true;
-        }
-
-        // Hilangkan layar preloader
+      // 2. PRELOADER 1 MENIT (60.000 MS) DENGAN ANIMASI LOADING.PNG
+      let preloaderInterval;
+      function finishLoading() {
         const preloader = document.getElementById('preloader');
-        preloader.classList.add('loaded');
+        const bar = document.getElementById('progress-bar');
+        const num = document.getElementById('progress-num');
+        const timerText = document.getElementById('timer-countdown');
+        const bootText = document.getElementById('boot-text');
+
+        if (preloaderInterval) clearInterval(preloaderInterval);
+        bar.style.width = '100%';
+        num.textContent = '100%';
+        timerText.textContent = '(0s)';
+        bootText.textContent = 'HYPERSPACE JUMP! MELUNCUR KE PORTOFOLIO ABLEEINS...';
+
+        setTimeout(() => {
+          preloader.classList.add('loaded');
+          setTimeout(() => {
+            warpSpeed = 1.5;
+          }, 600);
+        }, 300);
       }
+
+      function skipPreloader() {
+        finishLoading();
+      }
+
+      (function () {
+        const bar = document.getElementById('progress-bar');
+        const num = document.getElementById('progress-num');
+        const timerText = document.getElementById('timer-countdown');
+        const bootText = document.getElementById('boot-text');
+
+        const messages = [
+          'Menginisialisasi Koordinat: Ilham Husseini (Ableeins)...',
+          'Memuat Modul Headphone Kosmik (loading.png)...',
+          'Menghubungkan Satelit: RentalMobilOsborn • KopiKita • 444-Network • BajuBaru.id...',
+          'Sinkronisasi Orbit Karir: PT Osborn • Taiwan Excellence • GoTo • Asyst...',
+          'Memuat Musik Kosmik: The Weeknd - Starboy (YouTube Music)...',
+          'Merenungkan Nasib WNI di Tengah Bima Sakti...',
+          'HYPERSPACE JUMP! MELUNCUR KE PORTOFOLIO...'
+        ];
+
+        const totalDuration = 60000;
+        const startTime = Date.now();
+        warpSpeed = 16;
+
+        preloaderInterval = setInterval(() => {
+          const elapsed = Date.now() - startTime;
+          const percent = Math.min(100, Math.floor((elapsed / totalDuration) * 100));
+          const remainingSec = Math.max(0, Math.ceil((totalDuration - elapsed) / 1000));
+
+          bar.style.width = percent + '%';
+          num.textContent = percent + '%';
+          timerText.textContent = `(${remainingSec}s)`;
+
+          const msgIndex = Math.min(
+            Math.floor((percent / 100) * messages.length),
+            messages.length - 1
+          );
+          bootText.textContent = messages[msgIndex];
+
+          if (elapsed >= totalDuration) {
+            finishLoading();
+          }
+        }, 200);
+      })();
 
       // 3. EFEK KETIK OTOMATIS (TYPEWRITER)
       const roles = [
@@ -1176,7 +1196,26 @@
       }
       typeLoop();
 
-      // 4. NAVIGASI FILTER MULTI-PAGE DENGAN EFEK WARP
+      // 4. PEMUTAR MUSIK KOSMIK (YOUTUBE MUSIC INTEGRATION)
+      let isPlayingMusic = false;
+      function toggleCosmicMusic() {
+        const audio = document.getElementById('cosmic-audio');
+        const icon = document.getElementById('music-icon');
+        const label = document.getElementById('music-label');
+
+        if (!isPlayingMusic) {
+          window.open('https://music.youtube.com/watch?v=3_g2un5M350', '_blank');
+          icon.textContent = '⏸';
+          label.textContent = 'STARBOY ON';
+          isPlayingMusic = true;
+        } else {
+          icon.textContent = '▶';
+          label.textContent = 'PUTAR LAGU';
+          isPlayingMusic = false;
+        }
+      }
+
+      // 5. NAVIGASI FILTER MULTI-PAGE DENGAN EFEK WARP
       function filterSection(page) {
         warpSpeed = 14;
         setTimeout(() => { warpSpeed = 1.5; }, 450);
