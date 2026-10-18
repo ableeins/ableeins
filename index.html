@@ -343,7 +343,6 @@
       id="preloader"
       class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030014]/95 backdrop-blur-xl px-6"
     >
-      <!-- Animasi Reaktor Kosmik + Foto loading.png -->
       <div class="relative flex items-center justify-center w-56 h-56 sm:w-64 sm:h-64 mb-6">
         <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-600/30 via-cyan-400/20 to-pink-500/30 blur-2xl animate-pulse"></div>
         <div class="absolute inset-0 rounded-full border-2 border-dashed border-cyan-400/60 animate-[spin_12s_linear_infinite]"></div>
@@ -385,10 +384,10 @@
 
         <div class="pt-3">
           <button
-            onclick="skipPreloader()"
-            class="font-mono text-[10px] text-slate-400 hover:text-cyan-300 border border-slate-700/60 hover:border-cyan-400/60 px-3.5 py-1.5 rounded-full bg-slate-900/50 transition"
+            onclick="finishLoading()"
+            class="font-display font-bold text-xs text-cyan-300 hover:text-white border border-cyan-500/60 hover:border-cyan-400 px-6 py-3 rounded-full bg-cyan-950/40 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition animate-pulse"
           >
-            ⚡ Lewati Kalibrasi 60 Detik (Warp Langsung)
+            👑 KLIK UNTUK MELIHAT SIAPA RAJANYA
           </button>
         </div>
       </div>
@@ -970,26 +969,28 @@
 
     </main>
 
-    <!-- ================= FLOATING COSMIC MUSIC PLAYER (YOUTUBE MUSIC: STARBOY) ================= -->
+    <!-- ================= FLOATING COSMIC MUSIC PLAYER (AUTOPLAY YOUTUBE MUSIC EMBED) ================= -->
     <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#05011a]/95 backdrop-blur-2xl border-t border-purple-500/40 px-4 py-2.5 shadow-[0_-10px_30px_rgba(6,182,212,0.25)] flex items-center justify-between gap-3">
       <div class="flex items-center gap-3 overflow-hidden">
         <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-400/50 shadow-[0_0_15px_#22d3ee] flex-shrink-0 animate-spin" style="animation-duration: 8s;">
           <img src="https://i.ytimg.com/vi/3_g2un5M350/hqdefault.jpg" alt="Starboy" class="w-full h-full object-cover">
         </div>
         <div class="overflow-hidden">
-          <p class="font-display text-xs font-bold text-white truncate">Starboy — The Weeknd</p>
+          <p class="font-display text-xs font-bold text-white truncate">Starboy — The Weeknd (AUTOPLAY RAJA)</p>
           <p class="font-mono text-[10px] text-cyan-300 truncate">🎵 YouTube Music Orbit (3_g2un5M350)</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2 flex-shrink-0">
-        <audio id="cosmic-audio" src="https://www.youtube.com/watch?v=3_g2un5M350" preload="none"></audio>
+        <!-- Hidden iframe untuk Autoplay YouTube Music setelah preloader selesai -->
+        <div id="youtube-autoplay-container"></div>
+
         <button
           onclick="toggleCosmicMusic()"
           id="music-play-btn"
           class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-black font-display font-bold text-[10px] shadow-[0_0_15px_rgba(34,211,238,0.5)] hover:scale-105 transition flex items-center gap-1.5"
         >
-          <span id="music-icon">▶</span> <span id="music-label">PUTAR LAGU</span>
+          <span id="music-icon">⏸</span> <span id="music-label">AUTOPLAY ON</span>
         </button>
         <a
           href="https://music.youtube.com/watch?v=3_g2un5M350"
@@ -1010,7 +1011,7 @@
       </p>
     </footer>
 
-    <!-- ================= JAVASCRIPT: 3D STARFIELD, 60s PRELOADER & MUSIC PLAYER ================= -->
+    <!-- ================= JAVASCRIPT: 3D STARFIELD, 60s PRELOADER & AUTOPLAY MUSIC ================= -->
     <script>
       // 1. 3D STARFIELD & SHOOTING STARS ENGINE
       const canvas = document.getElementById('space-canvas');
@@ -1093,7 +1094,7 @@
       }
       animateSpace();
 
-      // 2. PRELOADER 1 MENIT (60.000 MS) DENGAN ANIMASI LOADING.PNG
+      // 2. PRELOADER 1 MENIT (60.000 MS) DENGAN AUTOPLAY MUSIC KETIKA SELESAI
       let preloaderInterval;
       function finishLoading() {
         const preloader = document.getElementById('preloader');
@@ -1106,7 +1107,11 @@
         bar.style.width = '100%';
         num.textContent = '100%';
         timerText.textContent = '(0s)';
-        bootText.textContent = 'HYPERSPACE JUMP! MELUNCUR KE PORTOFOLIO ABLEEINS...';
+        bootText.textContent = 'RAJA TELAH TIBA! HYPERSPACE JUMP & AUTOPLAY STARBOY...';
+
+        // Masukkan iFrame YouTube dengan parameter autoplay=1 agar langsung bernyanyi otomatis
+        const ytContainer = document.getElementById('youtube-autoplay-container');
+        ytContainer.innerHTML = `<iframe width="1" height="1" src="https://www.youtube.com/embed/3_g2un5M350?autoplay=1" allow="autoplay" style="display:none;"></iframe>`;
 
         setTimeout(() => {
           preloader.classList.add('loaded');
@@ -1114,10 +1119,6 @@
             warpSpeed = 1.5;
           }, 600);
         }, 300);
-      }
-
-      function skipPreloader() {
-        finishLoading();
       }
 
       (function () {
@@ -1131,9 +1132,9 @@
           'Memuat Modul Headphone Kosmik (loading.png)...',
           'Menghubungkan Satelit: RentalMobilOsborn • KopiKita • 444-Network • BajuBaru.id...',
           'Sinkronisasi Orbit Karir: PT Osborn • Taiwan Excellence • GoTo • Asyst...',
-          'Memuat Musik Kosmik: The Weeknd - Starboy (YouTube Music)...',
+          'Menyiapkan Musik Autoplay: The Weeknd - Starboy (Raja Orbit)...',
           'Merenungkan Nasib WNI di Tengah Bima Sakti...',
-          'HYPERSPACE JUMP! MELUNCUR KE PORTOFOLIO...'
+          'SIAPKAN DIRI, KLIK TOMBOL RAJA DI BAWAH ATAU TUNGGU SELESAI...'
         ];
 
         const totalDuration = 60000;
@@ -1196,22 +1197,23 @@
       }
       typeLoop();
 
-      // 4. PEMUTAR MUSIK KOSMIK (YOUTUBE MUSIC INTEGRATION)
-      let isPlayingMusic = false;
+      // 4. TOMBOL KONTROL MUSIK KOSMIK
+      let isPlayingMusic = true;
       function toggleCosmicMusic() {
-        const audio = document.getElementById('cosmic-audio');
+        const ytContainer = document.getElementById('youtube-autoplay-container');
         const icon = document.getElementById('music-icon');
         const label = document.getElementById('music-label');
 
-        if (!isPlayingMusic) {
-          window.open('https://music.youtube.com/watch?v=3_g2un5M350', '_blank');
-          icon.textContent = '⏸';
-          label.textContent = 'STARBOY ON';
-          isPlayingMusic = true;
-        } else {
+        if (isPlayingMusic) {
+          ytContainer.innerHTML = '';
           icon.textContent = '▶';
           label.textContent = 'PUTAR LAGU';
           isPlayingMusic = false;
+        } else {
+          ytContainer.innerHTML = `<iframe width="1" height="1" src="https://www.youtube.com/embed/3_g2un5M350?autoplay=1" allow="autoplay" style="display:none;"></iframe>`;
+          icon.textContent = '⏸';
+          label.textContent = 'AUTOPLAY ON';
+          isPlayingMusic = true;
         }
       }
 
