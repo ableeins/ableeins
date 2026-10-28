@@ -13,17 +13,33 @@
       content="Ilham Husseini, Adrian Archimedes, Muhammad Adrian Achilles, Ilham, Ableeins, Praktisi Cyber Security, 444-Network, rentalmobilosborn.com, kopikita.web.id, bajubaru.id, PT Osborn Mobilitas Indonesia, PT Aero System Indonesia, Asyst Garuda Indonesia, Taiwan Excellence, PT GoTo Indonesia, Universitas Bina Sarana Informatika, UBSI"
     />
     <meta name="author" content="Ilham Husseini (Ableeins)" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#030014" />
 
-    <!-- Open Graph / Social Media -->
+    <!-- Canonical URL (Wajib untuk SEO agar tidak duplikat di Google) -->
+    <link rel="canonical" href="https://www.444-network.id/" />
+
+    <!-- Open Graph / WhatsApp / LinkedIn / Facebook Preview -->
     <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="444-Network — Ilham Husseini (Ableeins)" />
     <meta property="og:title" content="Ilham Husseini (Ableeins) — Cyber Security & Space Portfolio" />
     <meta
       property="og:description"
       content="Praktisi Cyber Security 4 Tahun, Owner 444-Network Agency, IT & Data Checker Rental Mobil Osborn, Developer KopiKita & BajuBaru.id."
     />
-    <meta property="og:url" content="https://www.444-network.id" />
+    <meta property="og:url" content="https://www.444-network.id/" />
+    <meta property="og:image" content="https://www.444-network.id/profile.png" />
+    <meta property="og:image:alt" content="Ilham Husseini (Ableeins) — Founder 444-Network" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ilham Husseini (Ableeins) — Cyber Security & 444-Network" />
+    <meta
+      name="twitter:description"
+      content="Praktisi Cyber Security 4 Tahun, Owner 444-Network Agency, IT & Data Checker PT Osborn Mobilitas Indonesia."
+    />
+    <meta name="twitter:image" content="https://www.444-network.id/profile.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,6 +78,7 @@
             "alternateName": [
               "Adrian Archimedes",
               "Muhammad Adrian Achilles",
+              "Muhammad Adrian Achilles Husseini",
               "Ilham",
               "Ableeins"
             ],
@@ -73,7 +90,7 @@
               "Web Developer"
             ],
             "description": "Praktisi Cyber Security selama 4 tahun, Mahasiswa Universitas Bina Sarana Informatika (UBSI), IT & Data Checker di PT Osborn Mobilitas Indonesia (rentalmobilosborn.com), Developer KopiKita (kopikita.web.id) & BajuBaru.id (bajubaru.id), serta Owner 444-Network Agency (444-network.id).",
-            "url": "https://www.444-network.id",
+            "url": "https://www.444-network.id/",
             "telephone": "+62-851-4728-4454",
             "address": {
               "@type": "PostalAddress",
@@ -144,7 +161,7 @@
             "@id": "https://www.444-network.id/#organization",
             "name": "444-Network",
             "alternateName": "444 Website Agency & Data Profiling",
-            "url": "https://www.444-network.id",
+            "url": "https://www.444-network.id/",
             "founder": {
               "@id": "https://www.444-network.id/#person"
             },
@@ -178,7 +195,7 @@
         overflow-x: hidden;
       }
 
-      /* Canvas Bintang Luar Angkasa */
+      /* Canvas Bintang Luar Angkasa (GPU Layer) */
       #space-canvas {
         position: fixed;
         top: 0;
@@ -187,74 +204,64 @@
         height: 100vh;
         z-index: -1;
         pointer-events: none;
+        transform: translateZ(0);
       }
 
-      /* Cahaya Nebula Kosmik */
+      /* Cahaya Nebula Kosmik - Dioptimasi Tanpa CSS Blur Berat */
       .nebula-1 {
         position: fixed;
-        top: -10%;
-        left: -10%;
-        width: 450px;
-        height: 450px;
-        background: radial-gradient(circle, rgba(124, 58, 237, 0.28) 0%, transparent 70%);
-        filter: blur(80px);
+        top: -15%;
+        left: -15%;
+        width: 650px;
+        height: 650px;
+        background: radial-gradient(circle, rgba(124, 58, 237, 0.22) 0%, rgba(124, 58, 237, 0.05) 45%, transparent 70%);
         z-index: -1;
-        animation: pulseGlow 8s ease-in-out infinite alternate;
+        pointer-events: none;
+        transform: translate3d(0, 0, 0);
       }
       .nebula-2 {
         position: fixed;
-        bottom: -10%;
-        right: -10%;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, transparent 70%);
-        filter: blur(90px);
+        bottom: -15%;
+        right: -15%;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, rgba(6, 182, 212, 0.04) 45%, transparent 70%);
         z-index: -1;
-        animation: pulseGlow 10s ease-in-out infinite alternate-reverse;
+        pointer-events: none;
+        transform: translate3d(0, 0, 0);
       }
 
-      @keyframes pulseGlow {
-        0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
-        100% { transform: scale(1.25) translate(30px, -20px); opacity: 1; }
-      }
-
-      /* Animasi Zero Gravity (Melayang di Luar Angkasa) */
+      /* Animasi Zero Gravity (Khusus Elemen Utama & Ringan di GPU) */
       @keyframes floatSlow {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-12px) rotate(1deg); }
+        0%, 100% { transform: translate3d(0, 0px, 0); }
+        50% { transform: translate3d(0, -10px, 0); }
       }
-      @keyframes floatReverse {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(10px); }
-      }
-      .zero-gravity {
+      .zero-gravity-hero {
         animation: floatSlow 6s ease-in-out infinite;
-      }
-      .zero-gravity-delayed {
-        animation: floatReverse 7s ease-in-out infinite;
+        will-change: transform;
       }
 
-      /* Animasi Foto Loading.png */
+      /* Animasi Foto Loading.png (Tanpa Repaint Drop-Shadow di Tiap Frame) */
       @keyframes loadingFloatSpin {
         0%, 100% {
-          transform: translateY(0px) scale(1) rotate(-4deg);
-          filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.7));
+          transform: translate3d(0, 0px, 0) scale(1) rotate(-3deg);
         }
         50% {
-          transform: translateY(-14px) scale(1.08) rotate(4deg);
-          filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.9));
+          transform: translate3d(0, -12px, 0) scale(1.06) rotate(3deg);
         }
       }
       .loading-avatar-anim {
-        animation: loadingFloatSpin 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.65));
+        animation: loadingFloatSpin 3.2s ease-in-out infinite;
+        will-change: transform;
       }
 
-      /* Glow Foto Tanpa Background */
+      /* Glow Foto Tanpa Background (Single Pass Drop-Shadow) */
       .neon-cutout-cyan {
-        filter: drop-shadow(0 0 18px rgba(34, 211, 238, 0.55)) drop-shadow(0 0 35px rgba(124, 58, 237, 0.35));
+        filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.5));
       }
       .neon-cutout-galau {
-        filter: drop-shadow(0 0 20px rgba(244, 114, 182, 0.5)) drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));
+        filter: drop-shadow(0 0 20px rgba(244, 114, 182, 0.45));
       }
 
       /* Animasi Orbit Planet */
@@ -268,49 +275,42 @@
       }
       .orbit-ring-1 {
         animation: spinOrbit 10s linear infinite;
+        will-change: transform;
       }
       .orbit-ring-2 {
         animation: spinOrbitReverse 16s linear infinite;
+        will-change: transform;
       }
 
-      /* Hologram Card & Shimmer */
+      /* Hologram Card & Shimmer (Dioptimasi Tanpa Lag Saat Scroll) */
       .cosmic-card {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.65) 0%, rgba(9, 10, 26, 0.85) 100%);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(139, 92, 246, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(6, 182, 212, 0.05);
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.82) 0%, rgba(9, 10, 26, 0.92) 100%);
+        border: 1px solid rgba(139, 92, 246, 0.28);
+        box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.45);
         position: relative;
         overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateZ(0);
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
-      .cosmic-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -150%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-        transform: skewX(-25deg);
-        transition: left 0.7s ease;
-        pointer-events: none;
-      }
-      .cosmic-card:hover::before {
-        left: 150%;
+      /* Aktifkan blur hanya pada layar desktop agar HP tetap 60FPS mulus */
+      @media (min-width: 768px) {
+        .cosmic-card {
+          backdrop-filter: blur(8px);
+        }
       }
       .cosmic-card:hover {
-        border-color: rgba(34, 211, 238, 0.7);
-        box-shadow: 0 0 35px rgba(6, 182, 212, 0.25), 0 0 15px rgba(139, 92, 246, 0.3);
-        transform: translateY(-6px) scale(1.01);
+        border-color: rgba(34, 211, 238, 0.75);
+        box-shadow: 0 0 28px rgba(6, 182, 212, 0.22);
+        transform: translate3d(0, -5px, 0);
       }
 
       /* Preloader Hyperspace Transition */
       #preloader {
-        transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.7, 0, 0.2, 1);
+        transition: opacity 0.6s ease, transform 0.7s ease;
       }
       #preloader.loaded {
         opacity: 0;
-        transform: scale(1.8);
+        transform: scale(1.15);
         pointer-events: none;
       }
 
@@ -319,7 +319,7 @@
         background: linear-gradient(90deg, rgba(124, 58, 237, 0.35), rgba(6, 182, 212, 0.35));
         border-color: #22d3ee;
         color: #ffffff;
-        box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.35);
       }
 
       /* Kursor Ketik */
@@ -341,10 +341,9 @@
     <!-- ================= PRELOADER 1 MENIT (60 DETIK) DENGAN LOADING.PNG ================= -->
     <div
       id="preloader"
-      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030014]/95 backdrop-blur-xl px-6"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030014] px-6"
     >
       <div class="relative flex items-center justify-center w-56 h-56 sm:w-64 sm:h-64 mb-6">
-        <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-600/30 via-cyan-400/20 to-pink-500/30 blur-2xl animate-pulse"></div>
         <div class="absolute inset-0 rounded-full border-2 border-dashed border-cyan-400/60 animate-[spin_12s_linear_infinite]"></div>
         <div class="absolute inset-3 rounded-full border-t-2 border-b-2 border-purple-500 animate-[spin_4s_linear_infinite_reverse]"></div>
         <div class="absolute inset-7 rounded-full border-r-2 border-l-2 border-cyan-300/80 animate-[spin_2.5s_linear_infinite]"></div>
@@ -352,10 +351,11 @@
         <img
           src="loading.png"
           alt="Ilham Husseini Loading"
+          decoding="async"
           class="relative z-10 w-36 h-36 sm:w-40 sm:h-40 object-contain loading-avatar-anim select-none"
         />
 
-        <div class="absolute -bottom-2 z-20 px-4 py-1 rounded-full bg-slate-950/90 border border-cyan-400/60 shadow-[0_0_20px_#22d3ee] flex items-center gap-2">
+        <div class="absolute -bottom-2 z-20 px-4 py-1 rounded-full bg-slate-950 border border-cyan-400/60 shadow-[0_0_15px_#22d3ee] flex items-center gap-2">
           <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
           <span id="progress-num" class="font-display text-xs sm:text-sm font-black text-cyan-300">0%</span>
           <span id="timer-countdown" class="font-mono text-[11px] text-purple-300">(60s)</span>
@@ -373,7 +373,7 @@
         <div class="h-2 w-full max-w-xs mx-auto overflow-hidden rounded-full bg-slate-900 border border-purple-500/40 p-0.5">
           <div
             id="progress-bar"
-            class="h-full rounded-full bg-gradient-to-r from-purple-500 via-cyan-400 to-white shadow-[0_0_15px_#22d3ee] transition-all duration-150"
+            class="h-full rounded-full bg-gradient-to-r from-purple-500 via-cyan-400 to-white transition-all duration-150"
             style="width: 0%"
           ></div>
         </div>
@@ -385,7 +385,7 @@
         <div class="pt-3">
           <button
             onclick="finishLoading()"
-            class="font-display font-bold text-xs text-cyan-300 hover:text-white border border-cyan-500/60 hover:border-cyan-400 px-6 py-3 rounded-full bg-cyan-950/40 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition animate-pulse"
+            class="font-display font-bold text-xs text-cyan-300 hover:text-white border border-cyan-500/60 hover:border-cyan-400 px-6 py-3 rounded-full bg-cyan-950/60 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition"
           >
             👑 KLIK UNTUK MELIHAT SIAPA RAJANYA
           </button>
@@ -394,7 +394,7 @@
     </div>
 
     <!-- ================= NAVBAR ATAS ================= -->
-    <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#030014]/75 border-b border-purple-500/20">
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#030014]/85 border-b border-purple-500/20">
       <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
         <a href="#home" onclick="filterSection('all')" class="font-display font-bold text-base sm:text-lg tracking-wider flex items-center gap-2.5">
           <span class="relative flex h-3 w-3">
@@ -437,7 +437,7 @@
     </header>
 
     <!-- ================= FLOATING BOTTOM DOCK (KHUSUS HP) ================= -->
-    <nav class="sm:hidden fixed bottom-16 left-4 right-4 z-40 rounded-full border border-purple-500/40 bg-[#07031d]/90 backdrop-blur-2xl p-1.5 shadow-[0_0_30px_rgba(124,58,237,0.35)] flex justify-around font-mono text-[11px]">
+    <nav class="sm:hidden fixed bottom-16 left-4 right-4 z-40 rounded-full border border-purple-500/40 bg-[#07031d]/95 p-1.5 shadow-[0_0_25px_rgba(124,58,237,0.3)] flex justify-around font-mono text-[11px]">
       <button onclick="filterSection('all')" id="m-btn-all" class="nav-btn active flex-1 py-2.5 rounded-full border border-transparent text-center transition">
         🌌 Orbit
       </button>
@@ -461,13 +461,13 @@
           
           <!-- Kolom Teks Kiri -->
           <div class="lg:col-span-7 space-y-5">
-            <div class="inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-500/10 px-4 py-1.5 text-xs font-mono text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+            <div class="inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-500/10 px-4 py-1.5 text-xs font-mono text-purple-300">
               <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
               CYBER SECURITY COMMANDER • 4 TAHUN PENGALAMAN
             </div>
 
             <h1 class="font-display text-4xl sm:text-6xl font-black tracking-tight leading-none">
-              <span class="block text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
+              <span class="block text-white">
                 ILHAM HUSSEINI
               </span>
               <span class="block text-2xl sm:text-4xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
@@ -475,7 +475,7 @@
               </span>
             </h1>
 
-            <div class="font-mono text-xs sm:text-sm text-cyan-300 bg-slate-950/70 border border-cyan-500/30 rounded-xl px-4 py-3 inline-block">
+            <div class="font-mono text-xs sm:text-sm text-cyan-300 bg-slate-950/80 border border-cyan-500/30 rounded-xl px-4 py-3 inline-block">
               <span class="text-purple-400">root@cosmos:~$</span>
               <span id="typewriter-text">Praktisi Cyber Security</span><span class="cursor-blink text-cyan-400 font-bold">|</span>
             </div>
@@ -494,37 +494,38 @@
             <div class="pt-2 flex flex-wrap gap-3">
               <button
                 onclick="filterSection('projects')"
-                class="px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-white font-display font-bold text-xs tracking-wider shadow-[0_0_25px_rgba(6,182,212,0.5)] hover:scale-105 transition"
+                class="px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-white font-display font-bold text-xs tracking-wider shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:scale-105 transition"
               >
                 JELAJAHI 4 PROJECT 🚀
               </button>
               <button
                 onclick="filterSection('contact')"
-                class="px-6 py-3.5 rounded-full border border-purple-400/50 bg-purple-950/30 text-purple-200 font-display font-bold text-xs tracking-wider hover:border-cyan-400 hover:text-cyan-300 transition"
+                class="px-6 py-3.5 rounded-full border border-purple-400/50 bg-purple-950/40 text-purple-200 font-display font-bold text-xs tracking-wider hover:border-cyan-400 hover:text-cyan-300 transition"
               >
                 BUKA KONTAK 📡
               </button>
             </div>
           </div>
 
-          <!-- Kolom Visual Kanan: Foto Profile.png (No Background) & Orbit Planet 3D -->
+          <!-- Kolom Visual Kanan: Foto Profile.png & Orbit Planet 3D -->
           <div class="lg:col-span-5 flex items-center justify-center py-6">
-            <div class="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center zero-gravity">
-              <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-600/45 via-cyan-400/35 to-pink-500/35 blur-2xl animate-pulse"></div>
-              <div class="absolute w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-cyan-500/30 via-indigo-900/70 to-[#05011a] border border-cyan-400/40 shadow-[inset_-20px_-20px_40px_rgba(0,0,0,0.9),0_0_50px_rgba(6,182,212,0.35)]"></div>
+            <div class="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center zero-gravity-hero">
+              <div class="absolute w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-cyan-500/25 via-indigo-900/70 to-[#05011a] border border-cyan-400/40 shadow-[0_0_40px_rgba(6,182,212,0.3)]"></div>
 
               <img
                 src="profile.png"
                 alt="Ilham Husseini (Ableeins) Profile"
+                fetchpriority="high"
+                decoding="async"
                 class="relative z-10 w-56 h-56 sm:w-64 sm:h-64 object-contain neon-cutout-cyan select-none transform hover:scale-105 transition duration-500"
               />
 
-              <div class="absolute z-20 w-72 h-72 sm:w-80 sm:h-80 rounded-full border-2 border-cyan-400/60 shadow-[0_0_20px_rgba(34,211,238,0.4)] orbit-ring-1 pointer-events-none">
-                <div class="w-3.5 h-3.5 rounded-full bg-cyan-300 shadow-[0_0_15px_#22d3ee] -mt-1.5 mx-auto"></div>
+              <div class="absolute z-20 w-72 h-72 sm:w-80 sm:h-80 rounded-full border-2 border-cyan-400/60 orbit-ring-1 pointer-events-none">
+                <div class="w-3.5 h-3.5 rounded-full bg-cyan-300 shadow-[0_0_12px_#22d3ee] -mt-1.5 mx-auto"></div>
               </div>
 
               <div class="absolute z-20 w-64 h-64 sm:w-72 sm:h-72 rounded-full border border-dashed border-purple-400/70 orbit-ring-2 pointer-events-none">
-                <div class="w-3 h-3 rounded-full bg-pink-400 shadow-[0_0_15px_#f472b6] -mt-1.5 mx-auto"></div>
+                <div class="w-3 h-3 rounded-full bg-pink-400 shadow-[0_0_12px_#f472b6] -mt-1.5 mx-auto"></div>
               </div>
 
               <div class="absolute -top-3 right-0 z-30 cosmic-card px-3 py-1.5 rounded-full font-mono text-[10px] text-cyan-300">
@@ -540,38 +541,38 @@
 
         <!-- Baris Statistik Kosmik -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
-          <div class="cosmic-card rounded-2xl p-4 zero-gravity">
+          <div class="cosmic-card rounded-2xl p-4">
             <p class="font-mono text-[10px] text-cyan-400 tracking-widest">CYBER SECURITY</p>
             <p class="font-display text-2xl font-bold mt-1 text-white">4+ Tahun</p>
             <p class="text-xs text-slate-400 mt-0.5">PenTesting &amp; Mitigasi</p>
           </div>
-          <div class="cosmic-card rounded-2xl p-4 zero-gravity-delayed">
+          <div class="cosmic-card rounded-2xl p-4">
             <p class="font-mono text-[10px] text-purple-400 tracking-widest">FOUNDER &amp; OWNER</p>
             <p class="font-display text-2xl font-bold mt-1 text-white">444-Network</p>
             <p class="text-xs text-slate-400 mt-0.5">Agency Jakarta Barat</p>
           </div>
-          <div class="cosmic-card rounded-2xl p-4 zero-gravity">
+          <div class="cosmic-card rounded-2xl p-4">
             <p class="font-mono text-[10px] text-cyan-400 tracking-widest">IT &amp; DATA CHECKER</p>
             <p class="font-display text-xl sm:text-2xl font-bold mt-1 text-white">PT Osborn</p>
             <p class="text-xs text-slate-400 mt-0.5">Mobilitas Indonesia</p>
           </div>
-          <div class="cosmic-card rounded-2xl p-4 zero-gravity-delayed">
+          <div class="cosmic-card rounded-2xl p-4">
             <p class="font-mono text-[10px] text-purple-400 tracking-widest">AKADEMIK</p>
             <p class="font-display text-2xl font-bold mt-1 text-white">UBSI</p>
             <p class="text-xs text-slate-400 mt-0.5">Bina Sarana Informatika</p>
           </div>
         </div>
 
-        <!-- ================= INTERGALACTIC GALAU TRANSMISSION (FOTOTAMBAHAN.PNG) ================= -->
+        <!-- ================= INTERGALACTIC GALAU TRANSMISSION ================= -->
         <div class="mt-14 cosmic-card rounded-3xl p-6 sm:p-10 border border-pink-500/30 relative overflow-hidden">
-          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-pink-500/15 rounded-full blur-3xl pointer-events-none"></div>
           <div class="grid md:grid-cols-12 gap-8 items-center">
             <div class="md:col-span-4 flex justify-center">
-              <div class="relative w-52 h-60 sm:w-60 sm:h-64 flex items-end justify-center zero-gravity-delayed">
-                <div class="absolute inset-4 rounded-full bg-gradient-to-t from-pink-500/30 via-purple-600/25 to-transparent blur-xl"></div>
+              <div class="relative w-52 h-60 sm:w-60 sm:h-64 flex items-end justify-center">
                 <img
                   src="loading.png"
                   alt="Ilham Husseini Cosmic Reflection"
+                  loading="lazy"
+                  decoding="async"
                   class="relative z-10 w-full h-full object-contain neon-cutout-galau select-none"
                 />
               </div>
@@ -619,7 +620,7 @@
             href="https://www.rentalmobilosborn.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between zero-gravity"
+            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center justify-between gap-2 mb-5">
@@ -655,7 +656,7 @@
             href="https://kopikita.web.id/"
             target="_blank"
             rel="noopener noreferrer"
-            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between zero-gravity-delayed"
+            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center justify-between gap-2 mb-5">
@@ -690,7 +691,7 @@
             href="https://www.444-network.id"
             target="_blank"
             rel="noopener noreferrer"
-            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between zero-gravity"
+            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center justify-between gap-2 mb-5">
@@ -726,7 +727,7 @@
             href="https://www.bajubaru.id/"
             target="_blank"
             rel="noopener noreferrer"
-            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between zero-gravity-delayed"
+            class="cosmic-card group rounded-3xl p-6 flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center justify-between gap-2 mb-5">
@@ -772,7 +773,7 @@
         <div class="relative border-l-2 border-purple-500/40 ml-3 sm:ml-6 pl-6 sm:pl-9 space-y-8">
           
           <div class="relative group">
-            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-cyan-400 bg-[#030014] shadow-[0_0_15px_#22d3ee] group-hover:scale-125 transition"></span>
+            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-cyan-400 bg-[#030014] shadow-[0_0_12px_#22d3ee]"></span>
             <div class="cosmic-card rounded-3xl p-6">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white">
@@ -790,7 +791,7 @@
           </div>
 
           <div class="relative group">
-            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-purple-400 bg-[#030014] shadow-[0_0_15px_#c084fc] group-hover:scale-125 transition"></span>
+            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-purple-400 bg-[#030014] shadow-[0_0_12px_#c084fc]"></span>
             <div class="cosmic-card rounded-3xl p-6">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white">
@@ -808,7 +809,7 @@
           </div>
 
           <div class="relative group">
-            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-emerald-400 bg-[#030014] shadow-[0_0_15px_#34d399] group-hover:scale-125 transition"></span>
+            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-emerald-400 bg-[#030014] shadow-[0_0_12px_#34d399]"></span>
             <div class="cosmic-card rounded-3xl p-6">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white">
@@ -826,7 +827,7 @@
           </div>
 
           <div class="relative group">
-            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-pink-400 bg-[#030014] shadow-[0_0_15px_#f472b6] group-hover:scale-125 transition"></span>
+            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-pink-400 bg-[#030014] shadow-[0_0_12px_#f472b6]"></span>
             <div class="cosmic-card rounded-3xl p-6">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white">
@@ -844,7 +845,7 @@
           </div>
 
           <div class="relative group">
-            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-cyan-300 bg-[#030014] shadow-[0_0_15px_#67e8f9] group-hover:scale-125 transition"></span>
+            <span class="absolute -left-[33px] sm:-left-[45px] top-2 h-5 w-5 rounded-full border-2 border-cyan-300 bg-[#030014] shadow-[0_0_12px_#67e8f9]"></span>
             <div class="cosmic-card rounded-3xl p-6">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white">
@@ -883,10 +884,10 @@
               href="https://wa.me/6285147284454"
               target="_blank"
               rel="noopener noreferrer"
-              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-emerald-400 zero-gravity"
+              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-emerald-400"
             >
               <div class="flex items-center gap-4">
-                <div class="h-14 w-14 rounded-2xl bg-emerald-500/15 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:scale-110 group-hover:bg-emerald-400 group-hover:text-black transition-all duration-300">
+                <div class="h-14 w-14 rounded-2xl bg-emerald-500/15 border border-emerald-400/40 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-400 group-hover:text-black transition-all duration-300">
                   <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                     <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.535 5.86l-1.535 5.603 5.736-1.505c1.693.903 3.623 1.417 5.672 1.417 6.627 0 12-5.373 12-12s-5.373-12-12.408-11.375z"/>
                   </svg>
@@ -904,10 +905,10 @@
               href="https://www.instagram.com/ableeins"
               target="_blank"
               rel="noopener noreferrer"
-              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-pink-500 zero-gravity-delayed"
+              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-pink-500"
             >
               <div class="flex items-center gap-4">
-                <div class="h-14 w-14 rounded-2xl bg-pink-500/15 border border-pink-400/40 flex items-center justify-center text-pink-400 shadow-[0_0_20px_rgba(236,72,153,0.3)] group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300">
+                <div class="h-14 w-14 rounded-2xl bg-pink-500/15 border border-pink-400/40 flex items-center justify-center text-pink-400 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300">
                   <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
@@ -925,10 +926,10 @@
               href="https://www.linkedin.com/in/ableeins"
               target="_blank"
               rel="noopener noreferrer"
-              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-sky-400 zero-gravity"
+              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-sky-400"
             >
               <div class="flex items-center gap-4">
-                <div class="h-14 w-14 rounded-2xl bg-sky-500/15 border border-sky-400/40 flex items-center justify-center text-sky-400 shadow-[0_0_20px_rgba(56,189,248,0.3)] group-hover:scale-110 group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300">
+                <div class="h-14 w-14 rounded-2xl bg-sky-500/15 border border-sky-400/40 flex items-center justify-center text-sky-400 group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300">
                   <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
@@ -946,10 +947,10 @@
               href="https://github.com/ableeins"
               target="_blank"
               rel="noopener noreferrer"
-              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-cyan-400 zero-gravity-delayed"
+              class="cosmic-card group flex items-center justify-between p-5 rounded-2xl hover:border-cyan-400"
             >
               <div class="flex items-center gap-4">
-                <div class="h-14 w-14 rounded-2xl bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-white shadow-[0_0_20px_rgba(168,85,247,0.3)] group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <div class="h-14 w-14 rounded-2xl bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
                   <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                   </svg>
@@ -970,10 +971,10 @@
     </main>
 
     <!-- ================= FLOATING COSMIC MUSIC PLAYER (AUTOPLAY YOUTUBE MUSIC EMBED) ================= -->
-    <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#05011a]/95 backdrop-blur-2xl border-t border-purple-500/40 px-4 py-2.5 shadow-[0_-10px_30px_rgba(6,182,212,0.25)] flex items-center justify-between gap-3">
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#05011a]/95 border-t border-purple-500/40 px-4 py-2.5 shadow-[0_-8px_25px_rgba(6,182,212,0.2)] flex items-center justify-between gap-3">
       <div class="flex items-center gap-3 overflow-hidden">
-        <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-400/50 shadow-[0_0_15px_#22d3ee] flex-shrink-0 animate-spin" style="animation-duration: 8s;">
-          <img src="https://i.ytimg.com/vi/3_g2un5M350/hqdefault.jpg" alt="Starboy" class="w-full h-full object-cover">
+        <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-400/50 flex-shrink-0 animate-spin" style="animation-duration: 8s;">
+          <img src="https://i.ytimg.com/vi/3_g2un5M350/hqdefault.jpg" alt="Starboy" loading="lazy" class="w-full h-full object-cover">
         </div>
         <div class="overflow-hidden">
           <p class="font-display text-xs font-bold text-white truncate">Starboy — The Weeknd (AUTOPLAY RAJA)</p>
@@ -988,7 +989,7 @@
         <button
           onclick="toggleCosmicMusic()"
           id="music-play-btn"
-          class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-black font-display font-bold text-[10px] shadow-[0_0_15px_rgba(34,211,238,0.5)] hover:scale-105 transition flex items-center gap-1.5"
+          class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 text-black font-display font-bold text-[10px] hover:scale-105 transition flex items-center gap-1.5"
         >
           <span id="music-icon">⏸</span> <span id="music-label">AUTOPLAY ON</span>
         </button>
@@ -1011,54 +1012,68 @@
       </p>
     </footer>
 
-    <!-- ================= JAVASCRIPT: 3D STARFIELD, 60s PRELOADER & AUTOPLAY MUSIC ================= -->
+    <!-- ================= JAVASCRIPT: OPTIMIZED 3D STARFIELD, 60s PRELOADER & AUTOPLAY MUSIC ================= -->
     <script>
-      // 1. 3D STARFIELD & SHOOTING STARS ENGINE
+      // 1. 3D STARFIELD ENGINE (OPTIMIZED 60FPS & ADAPTIVE STAR COUNT)
       const canvas = document.getElementById('space-canvas');
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext('2d', { alpha: false });
       let width, height;
       let stars = [];
       let shootingStars = [];
       let warpSpeed = 1.5;
 
-      function resizeCanvas() {
+      function initStars() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
+        // Jumlah bintang adaptif: 90 di HP, 160 di Desktop (tetap ramai tapi hemat GPU 65%)
+        const starCount = width < 768 ? 90 : 160;
+        stars = [];
+        for (let i = 0; i < starCount; i++) {
+          stars.push({
+            x: (Math.random() - 0.5) * width * 2,
+            y: (Math.random() - 0.5) * height * 2,
+            z: Math.random() * width,
+            color: Math.random() > 0.5 ? '#22d3ee' : Math.random() > 0.5 ? '#c084fc' : '#ffffff',
+          });
+        }
       }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
 
-      for (let i = 0; i < 350; i++) {
-        stars.push({
-          x: (Math.random() - 0.5) * width * 2,
-          y: (Math.random() - 0.5) * height * 2,
-          z: Math.random() * width,
-          color: Math.random() > 0.5 ? '#22d3ee' : Math.random() > 0.5 ? '#c084fc' : '#ffffff',
-        });
-      }
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initStars, 150);
+      });
+      initStars();
 
       function spawnShootingStar() {
-        if (Math.random() < 0.03 && shootingStars.length < 2) {
+        if (Math.random() < 0.02 && shootingStars.length < 2) {
           shootingStars.push({
             x: Math.random() * width,
             y: 0,
-            len: Math.random() * 80 + 40,
-            speed: Math.random() * 12 + 8,
+            len: Math.random() * 70 + 40,
+            speed: Math.random() * 10 + 8,
             alpha: 1,
           });
         }
       }
 
       function animateSpace() {
-        ctx.fillStyle = 'rgba(3, 0, 20, 0.35)';
+        // Hentikan render saat tab browser diminimize/tidak dilihat agar hemat baterai & RAM
+        if (document.hidden) {
+          requestAnimationFrame(animateSpace);
+          return;
+        }
+
+        ctx.fillStyle = 'rgba(3, 0, 20, 0.45)';
         ctx.fillRect(0, 0, width, height);
 
         const cx = width / 2;
         const cy = height / 2;
 
-        for (let s of stars) {
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
           s.z -= warpSpeed;
-          if (s.z <= 0) {
+          if (s.z <= 1) {
             s.x = (Math.random() - 0.5) * width * 2;
             s.y = (Math.random() - 0.5) * height * 2;
             s.z = width;
@@ -1066,19 +1081,20 @@
 
           const sx = (s.x / s.z) * cx + cx;
           const sy = (s.y / s.z) * cy + cy;
-          const r = Math.max(0.4, (1 - s.z / width) * 2.8);
 
-          ctx.beginPath();
-          ctx.arc(sx, sy, r, 0, Math.PI * 2);
-          ctx.fillStyle = s.color;
-          ctx.fill();
+          if (sx >= 0 && sx < width && sy >= 0 && sy < height) {
+            const size = Math.max(0.8, (1 - s.z / width) * 2.8);
+            ctx.fillStyle = s.color;
+            // fillRect jauh lebih ringan di GPU dibanding arc() untuk partikel bintang
+            ctx.fillRect(sx, sy, size, size);
+          }
         }
 
         spawnShootingStar();
         for (let i = shootingStars.length - 1; i >= 0; i--) {
-          let m = shootingStars[i];
+          const m = shootingStars[i];
           ctx.strokeStyle = `rgba(34, 211, 238, ${m.alpha})`;
-          ctx.lineWidth = 2;
+          ctx.lineWidth = 1.8;
           ctx.beginPath();
           ctx.moveTo(m.x, m.y);
           ctx.lineTo(m.x - m.len, m.y + m.len);
@@ -1086,7 +1102,7 @@
 
           m.x += m.speed;
           m.y += m.speed;
-          m.alpha -= 0.02;
+          m.alpha -= 0.025;
           if (m.alpha <= 0) shootingStars.splice(i, 1);
         }
 
@@ -1109,7 +1125,6 @@
         timerText.textContent = '(0s)';
         bootText.textContent = 'RAJA TELAH TIBA! HYPERSPACE JUMP & AUTOPLAY STARBOY...';
 
-        // Masukkan iFrame YouTube dengan parameter autoplay=1 agar langsung bernyanyi otomatis
         const ytContainer = document.getElementById('youtube-autoplay-container');
         ytContainer.innerHTML = `<iframe width="1" height="1" src="https://www.youtube.com/embed/3_g2un5M350?autoplay=1" allow="autoplay" style="display:none;"></iframe>`;
 
@@ -1117,8 +1132,8 @@
           preloader.classList.add('loaded');
           setTimeout(() => {
             warpSpeed = 1.5;
-          }, 600);
-        }, 300);
+          }, 500);
+        }, 250);
       }
 
       (function () {
@@ -1139,7 +1154,7 @@
 
         const totalDuration = 60000;
         const startTime = Date.now();
-        warpSpeed = 16;
+        warpSpeed = 12;
 
         preloaderInterval = setInterval(() => {
           const elapsed = Date.now() - startTime;
@@ -1159,7 +1174,7 @@
           if (elapsed >= totalDuration) {
             finishLoading();
           }
-        }, 200);
+        }, 250);
       })();
 
       // 3. EFEK KETIK OTOMATIS (TYPEWRITER)
@@ -1219,8 +1234,8 @@
 
       // 5. NAVIGASI FILTER MULTI-PAGE DENGAN EFEK WARP
       function filterSection(page) {
-        warpSpeed = 14;
-        setTimeout(() => { warpSpeed = 1.5; }, 450);
+        warpSpeed = 10;
+        setTimeout(() => { warpSpeed = 1.5; }, 400);
 
         const hero = document.getElementById('sec-hero');
         const projects = document.getElementById('sec-projects');
